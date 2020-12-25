@@ -1,8 +1,8 @@
 <?php
 error_reporting(E_ALL);
-$LF = fopen(__DIR__ . "db.lock","w");
+$LF = fopen(__DIR__ . "/db.lock","w");
 flock($LF,LOCK_SH);
-$db = file_get_contents(__DIR__ . "db.json");
+$db = file_get_contents(__DIR__ . "/db.json");
 $db = json_decode($db,true);
 ?>
 <!DOCTYPE html>

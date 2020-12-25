@@ -8,22 +8,27 @@ if (
     exit();
 }
 
-$LF = fopen(__DIR__ . "db.lock","w");
+$hex = hash("crc32", $_POST["present"]);
+$seed = intval($hex,16);
+mt_srand($seed);
+
+$LF = fopen(__DIR__ . "/db.lock","w");
 flock($LF,LOCK_SH);
 
-if (file_exists(__DIR__ . "db.json")) {
-    $db = file_get_contents(__DIR__ . "db.json");
+if (file_exists(__DIR__ . "/db.json")) {
+    $db = file_get_contents(__DIR__ . "/db.json");
     $db = json_decode($db,true);
 }else{
     $db = ["チルノの肩たたたき券"];
 }
 
-shuffle($db);
-$get = $db[0];
+$len = count($db) - 1;
+$get = $db[mt_rand(0,$len)];
 $db[] = str_replace("<","＜",$_POST["present"]);
+$db = array_unique($db);
 
 flock($LF,LOCK_EX);
-file_put_contents(__DIR__ . "db.json",json_encode($db));
+file_put_contents(__DIR__ . "/db.json",json_encode($db));
 flock($LF,LOCK_UN);
 ?>
 <!DOCTYPE html>
@@ -34,6 +39,9 @@ flock($LF,LOCK_UN);
     <title>結果 | 幻想郷プレゼント交換2020</title>
 </head>
 <body>
+    <script>
+        console.log("Seed : " + <?php echo $seed; ?>);
+    </script>
     <h1>幻想郷プレゼント交換2020</h1>
     <h2>結果</h2>
     <p>「<?php echo $get; ?>」をもらいました！</p>
