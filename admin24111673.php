@@ -1,9 +1,5 @@
 <?php
-error_reporting(E_ALL);
-$LF = fopen(__DIR__ . "/db.lock","w");
-flock($LF,LOCK_SH);
-$db = file_get_contents(__DIR__ . "/db.json");
-$db = json_decode($db,true);
+$db = file(__DIR__ . "/db.txt");
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -14,8 +10,8 @@ $db = json_decode($db,true);
     <title>ADMIN MODE</title>
 </head>
 <body>
-    <ol>
+    <ul>
         <?php foreach ($db as &$value) echo "<li>" . $value . "</li>\n"; ?>
-    </ol>
+    </ul>
 </body>
 </html>
