@@ -19,6 +19,7 @@ mt_srand($seed);
 
 // ロード
 $db = file_exists(FILENAME) ? file(FILENAME) : ["チルノの肩たたたき券"];
+$db = array_map("trim",$db);
 $get = $db[mt_rand(0, count($db) - 1)];
 
 // 追記
