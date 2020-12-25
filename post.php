@@ -15,7 +15,7 @@ try {
 } catch (\Throwable $th) {
     $db = ["チルノの肩たたたき券"];
 }
-shuffle($db)
+shuffle($db);
 $get = $db[0];
 $db[] = str_replace("<","＜",$_POST["present"]);
 flock($LF,LOCK_EX);
