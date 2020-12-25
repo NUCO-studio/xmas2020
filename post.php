@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL);
 session_start();
 if (
     empty($_POST["present"]) ||
@@ -7,17 +8,21 @@ if (
     header("Location: index.php?e=true");
     exit();
 }
+
 $LF = fopen(__DIR__ . "db.lock","w");
 flock($LF,LOCK_SH);
+
 try {
     $db = file_get_contents(__DIR__ . "db.json");
     $db = json_decode($db,true);
 } catch (\Throwable $th) {
     $db = ["チルノの肩たたたき券"];
 }
+
 shuffle($db);
 $get = $db[0];
 $db[] = str_replace("<","＜",$_POST["present"]);
+
 flock($LF,LOCK_EX);
 file_put_contents(__DIR__ . "db.json",json_encode($db));
 flock($LF,LOCK_UN);
