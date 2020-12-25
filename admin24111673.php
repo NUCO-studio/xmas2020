@@ -13,7 +13,7 @@ $db = json_decode($db,true);
 </head>
 <body>
     <ol>
-        <?php foreach ($db as $value) echo "<li>" . $value . "</li>\n"; ?>
+        <?php foreach ($db as &$value) echo "<li>" . $value . "</li>\n"; ?>
     </ol>
 </body>
 </html>
