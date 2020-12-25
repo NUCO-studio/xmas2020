@@ -37,6 +37,7 @@ flock($LF,LOCK_UN);
 <body>
     <h1>幻想郷クリスマス2020</h1>
     <h2>結果</h2>
+    <?php echo $_POST["present"]; ?>
     <?php echo $get; ?>
     <p>「<?php echo $get; ?>」をもらいました！</p>
     <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="<?php echo "プレゼント交換で「 $get 」をもらいました！"; ?>" data-url="http://c.nucosen.live/" data-hashtags="幻想郷プレゼント交換2020" data-related="Poltergeist_L" data-lang="ja" data-dnt="true" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
