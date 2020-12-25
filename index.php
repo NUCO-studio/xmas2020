@@ -21,7 +21,7 @@
     </ul>
     <h2>会場はこちら</h2>
     <form action="post.php" method="post">
-        <input name="present" type="text" placehold="例）ルナサの握手券">
+        <input name="present" type="text" placeholder="例）ルナサの握手券">
         <input type="submit" value="　交換！　">
     </form>
 </body>
