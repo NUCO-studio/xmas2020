@@ -24,5 +24,13 @@
         <input name="present" type="text" placeholder="例）ルナサの握手券">
         <input type="submit" value="　交換！　">
     </form>
+    <h2>遊び方</h2>
+    <ol>
+        <li>テキストボックスに、あなたがプレゼント交換に出すプレゼントを入力します</li>
+        <li>「交換！」を押します</li>
+        <li>結果画面になります</li>
+        <li>ツイートして自慢します</li>
+        <li>気に入らなかったら別のプレゼントを入れてみます</li>
+    </ol>
 </body>
 </html>
