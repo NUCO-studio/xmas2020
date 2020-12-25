@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>幻想郷クリスマス2020</title>
+    <title>幻想郷プレゼント交換2020</title>
 </head>
 <body>
     <?php if(isset($_GET["e"])): ?>
     <p>エラー：違うものを入れてみてください</p>
     <?php endif; ?>
-    <h1>幻想郷クリスマス2020</h1>
+    <h1>幻想郷プレゼント交換2020</h1>
     <p>プレゼント交換しようね！</p>
-    <h2>説明</h2>
+    <h2>ルール</h2>
     <ul>
         <li>プレゼントを得るためには１つプレゼントを入れる必要があります</li>
         <li>「誰のプレゼントで」「それは何か」がわかるように書きましょう</li>
