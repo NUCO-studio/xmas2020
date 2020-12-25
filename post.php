@@ -12,10 +12,10 @@ if (
 $LF = fopen(__DIR__ . "db.lock","w");
 flock($LF,LOCK_SH);
 
-try {
+if (file_exists(__DIR__ . "db.json")) {
     $db = file_get_contents(__DIR__ . "db.json");
     $db = json_decode($db,true);
-} catch (\Throwable $th) {
+}else{
     $db = ["チルノの肩たたたき券"];
 }
 
